@@ -1,8 +1,13 @@
 const express = require('express');
-const router = express.Router();
-const { getUsers } = require('../controllers/userController');
+const authController = require('../controllers/authController');
+const { authenticateToken, authorizeAdmin } = require('../middlewares/authMiddleware');
 
-// Rota para listar usuários
-router.get('/', getUsers);
+const router = express.Router();
+
+router.post('/register', authController.register);
+router.post('/login', authController.login);
+router.get('/admin', authenticateToken, authorizeAdmin, (req, res) => {
+  res.json({ message: 'Você acessou uma rota de administrador!' });
+});
 
 module.exports = router;
