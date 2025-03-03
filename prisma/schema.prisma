@@ -12,7 +12,7 @@ model User {
   name      String
   email     String   @unique
   password  String
-  role      String   @default("user") // "user" para usuários comuns e "admin" para administradores
+  role      String   @default("user") // Adiciona o papel do usuário (user ou admin)
   createdAt DateTime @default(now())
 }
 
