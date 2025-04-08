@@ -5,6 +5,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import SignUpScreen from "../screens/SignUpScreen";
 import LoginScreen from "../screens/LoginScreen";
+import BlogVideoScreen from './src/screens/BlogVideoScreen';
 
 const Stack = createStackNavigator();
 
@@ -37,7 +38,12 @@ export default function App() {
           component={LoginScreen}
           options={{ headerShown: false }}
         />
+        / Dentro do NavigationContainer / Stack.Navigator
+<Stack.Screen name="BlogVideo" component={BlogVideoScreen} />
+
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
+
+
